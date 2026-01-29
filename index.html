@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Ascend | Youth Rising Together</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=Shadows+Into+Light&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'royal-blue': '#4169E1',
+              'navy': '#000080',
+              'cream': '#FAF9F6',
+              'cream-dark': '#F5F2EA',
+              'tape-yellow': 'rgba(245, 230, 180, 0.5)',
+            },
+            fontFamily: {
+              lexend: ['Lexend', 'sans-serif'],
+              handwriting: ['Shadows Into Light', 'cursive'],
+              space: ['Space Grotesk', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --paper-color: #FAF9F6;
+      }
+
+      body {
+        background-color: var(--paper-color);
+      }
+
+      .paper-texture {
+        background-color: var(--paper-color);
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        position: relative;
+      }
+
+      /* Crumpled paper overlay effect */
+      .paper-texture::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.04;
+        pointer-events: none;
+        background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
+        z-index: 50;
+      }
+
+      .collage-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 5px 5px 0px rgba(0, 0, 128, 0.05);
+      }
+      
+      .collage-card:hover {
+        transform: rotate(0deg) scale(1.02);
+        box-shadow: 15px 15px 0px rgba(65, 105, 225, 0.1);
+      }
+
+      .tape-effect {
+        position: relative;
+      }
+
+      .tape-effect::after {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-2deg);
+        width: 100px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(1px);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
+        z-index: 10;
+        border-radius: 2px;
+        border-left: 1px dashed rgba(0,0,0,0.05);
+        border-right: 1px dashed rgba(0,0,0,0.05);
+      }
+
+      .tape-corner::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 60px;
+        height: 25px;
+        background: rgba(245, 230, 180, 0.4);
+        transform: rotate(45deg);
+        z-index: 20;
+      }
+
+      .high-contrast-shadow {
+        text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+      }
+
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: var(--paper-color);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #4169E1;
+        border-radius: 10px;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-cream font-lexend text-navy selection:bg-royal-blue selection:text-white custom-scrollbar">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
